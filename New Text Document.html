@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Govind— web development." />
+  <!-- change "your-name" above to your actual name and add "front-end development" or your focus area -->
+  <title>Govind — html and css</title>
+  <style>
+    :root {
+      --ink: #f5f1e8;
+      --muted: #a7a29a;
+      --line: rgba(245, 241, 232, .14);
+      --panel: #171817;
+      --accent: #c8ff5a;
+      --accent-dark: #10130d;
+      --warm: #f28b61;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #0d0e0d;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    .shell { width: min(calc(100% - 48px), var(--max)); margin: 0 auto; }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(13, 14, 13, .82);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; min-height: 76px; }
+    .brand { font-weight: 800; letter-spacing: -.06em; font-size: 1.25rem; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 30px; color: var(--muted); font-size: .85rem; }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--accent-dark);
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 800;
+      font-size: .8rem;
+    }
+
+    .hero { padding: 112px 0 96px; position: relative; overflow: hidden; }
+    .hero::after {
+      content: "";
+      width: 440px;
+      height: 440px;
+      border: 1px solid rgba(200, 255, 90, .12);
+      border-radius: 50%;
+      position: absolute;
+      right: -160px;
+      top: 70px;
+      box-shadow: 0 0 0 60px rgba(200, 255, 90, .025), 0 0 0 120px rgba(200, 255, 90, .018);
+      pointer-events: none;
+    }
+    .eyebrow { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    h1 {
+      max-width: 790px;
+      margin: 18px 0 24px;
+      font-size: clamp(3.4rem, 8vw, 7.6rem);
+      letter-spacing: -.09em;
+      line-height: .9;
+      font-weight: 800;
+    }
+    h1 em { color: var(--warm); font-style: normal; }
+    .hero-copy { max-width: 480px; color: var(--muted); font-size: 1.05rem; }
+    .hero-actions { display: flex; gap: 14px; align-items: center; margin-top: 32px; }
+    .button { border: 1px solid var(--line); border-radius: 999px; padding: 13px 20px; font-size: .85rem; font-weight: 750; }
+    .button.primary { background: var(--accent); color: var(--accent-dark); border-color: var(--accent); }
+    .button:not(.primary):hover { border-color: var(--accent); }
+    .availability { display: inline-flex; align-items: center; gap: 8px; margin-top: 68px; color: var(--muted); font-size: .8rem; }
+    .dot { background: var(--accent); border-radius: 50%; width: 8px; height: 8px; box-shadow: 0 0 0 5px rgba(200, 255, 90, .1); }
+
+    section { padding: 100px 0; border-top: 1px solid var(--line); }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 42px; }
+    .section-heading h2 { font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.07em; line-height: .95; margin: 12px 0 0; }
+    .section-heading p { color: var(--muted); max-width: 330px; font-size: .9rem; }
+
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 80px; align-items: start; }
+    .about-text { font-size: clamp(1.4rem, 2.7vw, 2.3rem); letter-spacing: -.045em; line-height: 1.15; margin: 0; }
+    .about-text strong { color: var(--accent); font-weight: 500; }
+    .facts { border-top: 1px solid var(--line); }
+    .fact { display: flex; justify-content: space-between; gap: 24px; padding: 17px 0; border-bottom: 1px solid var(--line); font-size: .85rem; }
+    .fact span:first-child { color: var(--muted); }
+
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; transition: transform .25s ease, border-color .25s ease; }
+    .project:hover { transform: translateY(-6px); border-color: rgba(200, 255, 90, .65); }
+    .project-visual { min-height: 240px; padding: 24px; display: flex; align-items: end; background: #d5f67a; color: #15200d; position: relative; overflow: hidden; }
+    .project:nth-child(2) .project-visual { background: #f28b61; color: #27130d; }
+    .project:nth-child(3) .project-visual { background: #a8a5ff; color: #16152c; }
+    .project:nth-child(4) .project-visual { background: #e8d9bc; color: #272116; }
+    .project-visual::before { content: ""; position: absolute; width: 210px; height: 210px; border: 1px solid currentColor; border-radius: 50%; right: -40px; top: -55px; box-shadow: 0 0 0 30px rgba(255,255,255,.08), 0 0 0 60px rgba(255,255,255,.06); }
+    .project-number { font-size: 4.8rem; font-weight: 850; letter-spacing: -.1em; position: relative; }
+    .project-info { padding: 21px 22px 24px; }
+    .project-info h3 { font-size: 1.2rem; letter-spacing: -.03em; margin: 0 0 7px; }
+    .project-info p { color: var(--muted); font-size: .85rem; margin: 0 0 19px; }
+    .tags { display: flex; gap: 7px; flex-wrap: wrap; }
+    .tag { border: 1px solid var(--line); color: var(--muted); border-radius: 100px; padding: 5px 9px; font-size: .68rem; }
+
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service { padding: 25px; border: 1px solid var(--line); border-radius: 18px; min-height: 185px; }
+    .service-index { color: var(--warm); font-size: .75rem; font-weight: 800; }
+    .service h3 { margin: 35px 0 8px; font-size: 1.2rem; letter-spacing: -.04em; }
+    .service p { color: var(--muted); margin: 0; font-size: .83rem; }
+
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; }
+    .contact h2 { font-size: clamp(2.8rem, 6vw, 5.8rem); letter-spacing: -.09em; line-height: .9; margin: 14px 0 25px; }
+    .contact h2 em { color: var(--accent); font-style: normal; }
+    .contact-copy { color: var(--muted); max-width: 370px; }
+    .contact-links { display: grid; gap: 1px; border-top: 1px solid var(--line); }
+    .contact-link { display: flex; justify-content: space-between; padding: 17px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
+    .contact-link span { color: var(--muted); }
+    .contact-link:hover span { color: var(--accent); }
+    footer { padding: 25px 0 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: .75rem; display: flex; justify-content: space-between; }
+
+    @media (max-width: 720px) {
+      .shell { width: min(calc(100% - 32px), var(--max)); }
+      .nav-links { display: none; }
+      .nav-cta { padding: 9px 14px; }
+      .hero { padding: 80px 0 72px; }
+      .hero::after { right: -260px; top: 230px; }
+      .hero-actions { flex-wrap: wrap; }
+      .availability { margin-top: 48px; }
+      section { padding: 70px 0; }
+      .section-heading, .contact { display: block; }
+      .section-heading p { margin-top: 25px; }
+      .about-grid { grid-template-columns: 1fr; gap: 42px; }
+      .projects, .services { grid-template-columns: 1fr; }
+      .project-visual { min-height: 190px; }
+      .contact-links { margin-top: 44px; }
+      footer { gap: 16px; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="shell">
+      <a class="brand" href="#top">Govind</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Selected work</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="mailto:sharmamanjuroyal@gmail.com">Let's talk <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="eyebrow"> html and css and i knew few js</div>
+      <!-- line above: replace "your skill" with your focus, e.g. "Front-end Developer" -->
+      <h1>Innovation in every line </h1>
+      <p class="hero-copy">I'm Govind, a web developer passionate about creating beautiful and functional websites.</p>
+      <!-- lines above: add your name and a short line about your skills -->
+      <div class="hero-actions">
+        <a class="button primary" href="#work">See my work <span aria-hidden="true">↓</span></a>
+        <a class="button" href="mailto:sharmamanjuroyal@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+        <!-- add your real email above -->
+      </div>
+      <div class="availability"><span class="dot"></span> Available for select projects — 2026</div>
+    </section>
+
+    <section id="about">
+      <div class="shell">
+        <div class="section-heading">
+          <div><div class="eyebrow">01 — A little about me</div><h2>Curious by<br />default.</h2></div>
+          <p>Good work starts with good questions. I care about the details, but never lose sight of the bigger picture.</p>
+        </div>
+        <div class="about-grid">
+          <p class="about-text">Here i am coding for 3 month and i am learning html css js i just wana start creating websites.</p>
+          <div class="facts">
+            <div class="fact"><span>Based in</span><span>India,</span></div>
+            <div class="fact"><span>Currently</span><span> Nothing</span></div>
+            <div class="fact"><span>Previously</span><span>Not specified</span></div>
+            <div class="fact"><span>Outside work</span><span> long walks</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="shell">
+        <div class="section-heading">
+          <div><div class="eyebrow">02 — Selected work</div><h2>A few things<br />I've made.</h2></div>
+          <p>A selection of product, brand, and web projects made with good people.</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-visual"><span class="project-number">01</span></div>
+            <div class="project-info"><h3>Orbit Finance</h3><p>A calmer way to understand your money.</p><div class="tags"><span class="tag">Product design</span><span class="tag">Web app</span></div></div>
+          </article>
+          <article class="project">
+            <div class="project-visual"><span class="project-number">02</span></div>
+            <div class="project-info"><h3>Good Day Studio</h3><p>A warm identity for a modern creative team.</p><div class="tags"><span class="tag">Brand identity</span><span class="tag">Art direction</span></div></div>
+          </article>
+          <article class="project">
+            <div class="project-visual"><span class="project-number">03</span></div>
+            <div class="project-info"><h3>Common Ground</h3><p>Building better conversations online.</p><div class="tags"><span class="tag">UX / UI</span><span class="tag">Strategy</span></div></div>
+          </article>
+          <article class="project">
+            <div class="project-visual"><span class="project-number">04</span></div>
+            <div class="project-info"><h3>Field Notes</h3><p>An independent publication for curious minds.</p><div class="tags"><span class="tag">Editorial design</span><span class="tag">Development</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="section-heading">
+          <div><div class="eyebrow">03 — What I do</div><h2>From idea<br />to impact.</h2></div>
+          <p>Flexible by nature, rigorous by choice. I join teams at any point in the journey.</p>
+        </div>
+        <div class="services">
+          <article class="service"><div class="service-index">01</div><h3>Product design</h3><p>Research, systems, and interfaces that make the complex feel clear.</p></article>
+          <article class="service"><div class="service-index">02</div><h3>Brand & identity</h3><p>Distinct visual worlds that give good ideas a voice and a point of view.</p></article>
+          <article class="service"><div class="service-index">03</div><h3>Creative development</h3><p>Thoughtful, high-performance websites built with care from the first line.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="shell contact">
+        <div>
+          <div class="eyebrow">04 — Have a good one?</div>
+          <h2>Let's make<br />something <em>great.</em></h2>
+          <p class="contact-copy">Have a project in mind, or just want to say hello? My inbox is always open.</p>
+        </div>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:sharmamanjuroyal@gmail.com">Email <span>sharmamanjuroyal@gmail.com ↗</span></a>
+<!--change the mail your mail address-->
+          <a class="contact-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn <span>Connect with me ↗</span></a>
+<!--add the linkedin here-->
+          <a class="contact-link" href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram <span>@yourhandle ↗</span></a>
+<!--add the instagram here-->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <span>© 2026 Govind</span>
+    <span>Designed & built with intention.</span>
+  </footer>
+</body>
+</html>
