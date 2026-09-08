@@ -38,11 +38,7 @@ Demo
 
 (Add a live link here once deployed — e.g. via GitHub Pages, Netlify, or Vercel)
 
-🔗 Live site: https://your-username.github.io/profollow
 
-(Add a screenshot or GIF here for a quick visual preview)
-
-![Profollow screenshot](./assets/screenshot.png)
 Tech Stack
 Layer	Technology
 Markup	HTML5
