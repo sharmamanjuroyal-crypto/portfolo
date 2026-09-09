@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A warm, responsive personal portfolio." />
+    <title>Govind — Creative Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Rian home">Govind<span>.</span></a>
+      <button class="menu-button" aria-label="Open menu" aria-expanded="false">Menu</button>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#work">Work</a><a href="#notes">Notes</a><a class="nav-contact" href="#contact">Let's talk <span>↗</span></a>
+      </nav>
+      <button class="theme-button" aria-label="Switch color theme">◐</button>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <p class="eyebrow">Independent designer &amp; developer · India</p>
+        <h1>I make digital things feel <em>like people made them.</em></h1>
+        <p class="hero-copy">I help thoughtful brands turn their big ideas into useful, memorable web experiences.</p>
+        <a class="round-link" href="#work">See selected work <span>↓</span></a>
+        <div class="hero-doodle" aria-hidden="true"><span>hello!</span><i></i><b>✦</b></div>
+      </section>
+
+      <section class="about section" id="about">
+        <div class="section-label"><span>01</span> A little about me</div>
+        <div class="about-grid">
+          <div class="portrait"><div class="portrait-face">R</div><span>Currently making things<br />from a sunny corner.</span></div>
+          <div>
+            <h2>Good design should feel less like a funnel and more like a friendly conversation.</h2>
+            <p>I’m Govind, a multidisciplinary designer who codes. I care about the small details: a button that says the right thing, a page that breathes, and products that respect people’s time.</p>
+            <a class="text-link" href="#contact">More about my approach <span>→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="work section" id="work">
+        <div class="section-label"><span>02</span> A few recent projects</div>
+        <div class="project-list">
+          <article class="project project--coral"><div class="project-number">01 / 03</div><div><p class="project-type">Brand site · 2025</p><h3>Sunday<br /><em>Studio</em></h3><a href="#contact" aria-label="Ask about Sunday Studio">View story ↗</a></div><div class="project-art art-sun"><span>sun</span></div></article>
+          <article class="project project--blue"><div class="project-number">02 / 03</div><div><p class="project-type">Digital product · 2025</p><h3>Between<br /><em>the lines</em></h3><a href="#contact" aria-label="Ask about Between the lines">View story ↗</a></div><div class="project-art art-lines">〰<br />〰<br />〰</div></article>
+          <article class="project project--lime"><div class="project-number">03 / 03</div><div><p class="project-type">Identity &amp; web · 2024</p><h3>Good<br /><em>Neighbour</em></h3><a href="#contact" aria-label="Ask about Good Neighbour">View story ↗</a></div><div class="project-art art-flower">✳</div></article>
+        </div>
+      </section>
+
+      <section class="notes section" id="notes">
+        <div class="section-label"><span>03</span> Things I believe</div>
+        <div class="note-grid">
+          <p>01 <strong>Clarity is kind.</strong> People should always know where they are and what happens next.</p>
+          <p>02 <strong>Personality builds trust.</strong> A little warmth makes a digital space feel safe.</p>
+          <p>03 <strong>Details carry meaning.</strong> The quietest decisions often make the biggest difference.</p>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <p class="eyebrow">Have a project in mind?</p>
+        <h2>Let’s make<br /><em>something lovely.</em></h2>
+        <a class="email" href="mailto:hello@rian.design">hello@rian.design <span>↗</span></a>
+        <form class="contact-form" id="contact-form">
+          <label>Your email <input required type="email" placeholder="you@example.com" /></label>
+          <label>What are you making? <textarea required rows="3" placeholder="Tell me a little about it..."></textarea></label>
+          <button type="submit">Send a note →</button><p class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <footer><span>© 2026 Govind</span><span>Made with care, not haste.</span><a href="#home">Back to top ↑</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
