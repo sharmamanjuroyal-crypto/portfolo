@@ -7,9 +7,10 @@
   --serif: "Playfair Display", Georgia, serif;
   --sans: "DM Sans", sans-serif;
   --mono: "DM Mono", monospace;
+  --soft-shadow: 0 18px 45px rgb(23 34 37 / 10%);
 }
 
-* {
+ *{
   box-sizing: border-box;
 }
 
@@ -22,11 +23,22 @@ body {
   background: var(--paper);
   color: var(--ink);
   font: 16px/1.55 var(--sans);
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .site-header {
@@ -61,7 +73,7 @@ a {
 }
 
 .nav a {
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
 }
 
 .nav a:hover,
@@ -69,10 +81,20 @@ a {
   color: var(--accent);
 }
 
+.nav a:hover {
+  transform: translateY(-2px);
+}
+
 .nav-contact {
   border: 1px solid var(--ink);
   border-radius: 999px;
   padding: 0.5rem 0.9rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-contact:hover {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .theme-button,
@@ -133,6 +155,12 @@ h3 em {
   margin-top: 2.5rem;
   border-bottom: 1px solid;
   padding-bottom: 0.3rem;
+  transition: gap 0.25s ease, color 0.2s;
+}
+
+.round-link:hover {
+  gap: 2.6rem;
+  color: var(--accent);
 }
 
 .round-link span {
@@ -146,7 +174,7 @@ h3 em {
   width: 150px;
   height: 150px;
   border: 2px solid var(--accent);
-  border-radius: 50%;
+  border-radius: 43% 57% 51% 49% / 56% 44% 58% 42%;
   transform: rotate(-13deg);
   display: grid;
   place-items: center;
@@ -198,6 +226,9 @@ h3 em {
   padding: 1rem;
   position: relative;
   overflow: hidden;
+  border-radius: 48% 52% 45% 55% / 8% 8% 92% 92%;
+  box-shadow: var(--soft-shadow);
+  transform: rotate(-2deg);
 }
 
 .portrait-face {
@@ -257,6 +288,12 @@ h2 {
   grid-template-columns: 110px 1fr 40%;
   position: relative;
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project:hover {
+  transform: translateY(-6px) rotate(0.35deg);
+  box-shadow: var(--soft-shadow);
 }
 
 .project-number,
@@ -385,6 +422,11 @@ h2 {
   outline-color: var(--accent);
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #9aa39d;
+}
+
 .contact-form button {
   width: max-content;
   border: 1px solid var(--paper);
@@ -394,6 +436,13 @@ h2 {
   padding: 0.7rem 1.1rem;
   font: inherit;
   cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background: var(--paper);
+  color: var(--ink);
+  transform: translateY(-2px);
 }
 
 .form-message {
@@ -414,6 +463,7 @@ body.dark {
   --ink: #f5f0e6;
   --muted: #b5bcb7;
   --line: #3b4644;
+  --soft-shadow: 0 18px 45px rgb(0 0 0 / 24%);
 }
 
 body.dark .portrait-face {
