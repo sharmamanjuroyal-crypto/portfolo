@@ -394,8 +394,37 @@ h2 {
   border-bottom: 1px solid;
 }
 
+.email-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+}
+
 .email span {
   color: var(--accent);
+}
+
+.copy-email {
+  border: 1px solid #8b9690;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  padding: 0.45rem 0.8rem;
+  font: 0.8rem var(--mono);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.copy-email:hover {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.copy-message {
+  color: #b9c1ba;
+  font-size: 0.85rem;
 }
 
 .contact-form {
@@ -570,4 +599,3 @@ body.dark .portrait-face {
     flex-wrap: wrap;
   }
 }
-
